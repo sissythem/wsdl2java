@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://bean.miscwebservices.wsserver.ccb.telsim.com" xmlns:impl="http://bean.miscwebservices.wsserver.ccb.telsim.com" xmlns:intf="http://bean.miscwebservices.wsserver.ccb.telsim.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <schema elementFormDefault="qualified" targetNamespace="http://bean.miscwebservices.wsserver.ccb.telsim.com" xmlns="http://www.w3.org/2001/XMLSchema">
+      <element name="performMiscOperation">
+        <complexType>
+          <sequence>
+            <element name="xmlVal" nillable="true" type="xsd:string"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="performMiscOperationResponse">
+        <complexType>
+          <sequence>
+            <element name="performMiscOperationReturn" nillable="true" type="xsd:string"/>
+          </sequence>
+        </complexType>
+      </element>
+    </schema>
+  </wsdl:types>
+  <wsdl:message name="performMiscOperationRequest">
+    <wsdl:part element="impl:performMiscOperation" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="performMiscOperationResponse">
+    <wsdl:part element="impl:performMiscOperationResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:portType name="MiscServices">
+    <wsdl:operation name="performMiscOperation">
+      <wsdl:input message="impl:performMiscOperationRequest" name="performMiscOperationRequest"/>
+      <wsdl:output message="impl:performMiscOperationResponse" name="performMiscOperationResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="MiscServicesSoapBinding" type="impl:MiscServices">
+    <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="performMiscOperation">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="performMiscOperationRequest">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="performMiscOperationResponse">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MiscServicesService">
+    <wsdl:port binding="impl:MiscServicesSoapBinding" name="MiscServices">
+      <wsdlsoap:address location="http://selfcarecf:80/TelsimGlobal/services/MiscServices"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

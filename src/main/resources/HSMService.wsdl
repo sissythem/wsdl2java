@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Created by TIBCO WSDL--><wsdl:definitions name="Untitled" targetNamespace="http://vodafone.com.tr/ServiceCatalog/Business/HSMServices" xmlns:ns2="http://vodafone.com.tr/EAI/Common/ResponseCodes" xmlns:ns1="http://vodafone.com.tr/ServiceCatalog/Business/External/GetEncryptionKey/v1" xmlns:ns4="http://vodafone.com.tr/ServiceCatalog/Business/External/ManageEncryption/v1" xmlns:ns3="http://vodafone.com.tr/ServiceCatalog/Business/External/RenewExternalEncryptionKey/v1" xmlns:tns="http://vodafone.com.tr/ServiceCatalog/Business/HSMServices" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns0="http://vodafone.com.tr/EAI/Common/Header" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+    <xs:schema targetNamespace="http://vodafone.com.tr/ServiceCatalog/Business/External/GetEncryptionKey/v1" elementFormDefault="qualified" attributeFormDefault="unqualified" xmlns="http://vodafone.com.tr/ServiceCatalog/Business/External/GetEncryptionKey/v1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:complexType name="GetEncryptionKeyRequest">
+        <xs:sequence>
+          <xs:element ref="ns1:Request"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetEncryptionKeyResponse">
+        <xs:sequence>
+          <xs:element ref="ns1:Response" minOccurs="0"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="Request"/>
+      <xs:complexType name="Response">
+        <xs:sequence>
+          <xs:element name="KEY" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="GetEncryptionKeyRequest" type="ns1:GetEncryptionKeyRequest"/>
+      <xs:element name="GetEncryptionKeyResponse" type="ns1:GetEncryptionKeyResponse"/>
+      <xs:element name="Request" type="ns1:Request"/>
+      <xs:element name="Response" type="ns1:Response"/>
+    </xs:schema>
+    <xs:schema targetNamespace="http://vodafone.com.tr/ServiceCatalog/Business/External/ManageEncryption/v1" elementFormDefault="qualified" attributeFormDefault="unqualified" xmlns="http://vodafone.com.tr/ServiceCatalog/Business/External/ManageEncryption/v1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:complexType name="ManageEncryptionRequest">
+        <xs:sequence>
+          <xs:element ref="ns4:Request"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ManageEncryptionResponse">
+        <xs:sequence>
+          <xs:element ref="ns4:Response" minOccurs="0"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="MsgType">
+        <xs:simpleContent>
+          <xs:extension base="xs:string">
+            <xs:attribute name="Index" type="xs:string"/>
+          </xs:extension>
+        </xs:simpleContent>
+      </xs:complexType>
+      <xs:complexType name="Request">
+        <xs:sequence>
+          <xs:element name="Action" type="xs:string"/>
+          <xs:element name="ListOfMessage">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="InputMessage" type="ns4:MsgType" maxOccurs="unbounded"/>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="Response">
+        <xs:sequence>
+          <xs:element name="ListOfMessage">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="OutputMessage" type="ns4:MsgType" maxOccurs="unbounded"/>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ManageEncryptionRequest" type="ns4:ManageEncryptionRequest"/>
+      <xs:element name="ManageEncryptionResponse" type="ns4:ManageEncryptionResponse"/>
+      <xs:element name="Request" type="ns4:Request"/>
+      <xs:element name="Response" type="ns4:Response"/>
+    </xs:schema>
+    <xs:schema targetNamespace="http://vodafone.com.tr/EAI/Common/Header" elementFormDefault="qualified" attributeFormDefault="unqualified" xmlns="http://vodafone.com.tr/EAI/Common/Header" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:complexType name="Attribute">
+        <xs:sequence>
+          <xs:element name="Name" type="xs:string"/>
+          <xs:element name="Value" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="BusinessInterface">
+        <xs:sequence>
+          <xs:choice minOccurs="0">
+            <xs:element name="Domain" type="xs:string"/>
+            <xs:element name="Service" type="xs:string"/>
+          </xs:choice>
+          <xs:element name="Operation" type="xs:string" minOccurs="0"/>
+          <xs:element name="Version" type="xs:integer" minOccurs="0"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="Credentials">
+        <xs:sequence>
+          <xs:element name="ApplicationId" type="xs:string"/>
+          <xs:element name="User" type="xs:string"/>
+          <xs:element name="Password" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="Flow">
+        <xs:sequence>
+          <xs:element name="Owner" type="xs:string" minOccurs="0"/>
+          <xs:element name="OwnerId" type="xs:string" minOccurs="0"/>
+          <xs:element name="ProcessId" type="xs:string" minOccurs="0"/>
+          <xs:element name="BusinessInterface" type="ns0:BusinessInterface" minOccurs="0"/>
+          <xs:element name="TechnicalInterface" type="ns0:TechnicalInterface" minOccurs="0"/>
+          <xs:element name="Timestamp" type="xs:dateTime" minOccurs="0"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="Header">
+        <xs:sequence>
+          <xs:element name="RequestId" type="xs:string" minOccurs="0"/>
+          <xs:element name="SourceSystem" type="xs:string"/>
+          <xs:element name="ReplyExpected">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:enumeration value="No"/>
+                <xs:enumeration value="Now"/>
+                <xs:enumeration value="Later"/>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element name="QoS" minOccurs="0">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:enumeration value="G"/>
+                <xs:enumeration value="R"/>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element name="Schedule" type="xs:dateTime" minOccurs="0"/>
+          <xs:element name="CorrelationId" type="xs:string" minOccurs="0"/>
+          <xs:element name="Priority" type="xs:integer" minOccurs="0"/>
+          <xs:element name="Credentials" type="ns0:Credentials" maxOccurs="unbounded"/>
+          <xs:element name="ProxySystem" type="xs:string" minOccurs="0"/>
+          <xs:element name="ForceSimulate" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="Attributes" minOccurs="0">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="Attribute" type="ns0:Attribute" minOccurs="0" maxOccurs="unbounded"/>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="HeaderExtended">
+        <xs:complexContent>
+          <xs:extension base="ns0:Header">
+            <xs:sequence>
+              <xs:element name="BusinessInterface" type="ns0:BusinessInterface" minOccurs="0"/>
+              <xs:element name="TechnicalInterface" type="ns0:TechnicalInterface" minOccurs="0"/>
+              <xs:element name="TargetSystem" type="xs:string" minOccurs="0"/>
+              <xs:element name="CreationTimestamp" type="xs:dateTime" minOccurs="0"/>
+              <xs:element name="TimeOut" type="xs:string" minOccurs="0"/>
+              <xs:element name="Tries" type="xs:string" minOccurs="0"/>
+              <xs:element name="MaxTries" type="xs:integer" minOccurs="0"/>
+              <xs:element name="Repub" type="xs:boolean" minOccurs="0"/>
+              <xs:element name="RepubTime" type="xs:string" minOccurs="0"/>
+              <xs:element name="History" type="ns0:History" minOccurs="0"/>
+              <xs:element name="Transport" type="ns0:Transport" minOccurs="0"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="History">
+        <xs:sequence>
+          <xs:element name="Flow" type="ns0:Flow" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="Step" type="xs:long" minOccurs="0"/>
+          <xs:element name="NumSteps" type="xs:long" minOccurs="0"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="TechnicalInterface">
+        <xs:sequence>
+          <xs:element name="Domain" type="xs:string" minOccurs="0"/>
+          <xs:element name="Interface" type="xs:string" minOccurs="0"/>
+          <xs:element name="Version" type="xs:integer" minOccurs="0"/>
+          <xs:element name="MethodCall" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="Transport">
+        <xs:sequence>
+          <xs:element name="ReplyTo" type="xs:string" minOccurs="0"/>
+          <xs:element name="Destination" type="xs:string" minOccurs="0"/>
+          <xs:element name="MessageId" type="xs:string" minOccurs="0"/>
+          <xs:element name="SOAPAction" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="Header" type="ns0:Header"/>
+    </xs:schema>
+    <xsd:schema targetNamespace="http://vodafone.com.tr/EAI/Common/ResponseCodes" elementFormDefault="qualified" attributeFormDefault="unqualified" xmlns="http://vodafone.com.tr/EAI/Common/ResponseCodes" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <xsd:complexType name="Attribute">
+        <xsd:sequence>
+          <xsd:element name="Name" type="xsd:string"/>
+          <xsd:element name="Value" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ResponseCodes">
+        <xsd:sequence>
+          <xsd:element name="ResponseCode" type="xsd:string"/>
+          <xsd:element name="ResponseMsg" type="xsd:string" minOccurs="0"/>
+          <xsd:element name="ErrorCode" type="xsd:string" minOccurs="0"/>
+          <xsd:element name="ErrorDescription" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ResponseHeader">
+        <xsd:complexContent>
+          <xsd:extension base="ns2:ResponseCodes">
+            <xsd:sequence>
+              <xsd:element name="RequestId" type="xsd:string" minOccurs="0"/>
+              <xsd:element name="Domain" type="xsd:string" minOccurs="0"/>
+              <xsd:element name="Service" type="xsd:string" minOccurs="0"/>
+              <xsd:element name="Operation" type="xsd:string" minOccurs="0"/>
+              <xsd:element name="Version" type="xsd:string" minOccurs="0"/>
+              <xsd:element name="Attributes" minOccurs="0">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element name="Attribute" type="ns2:Attribute" minOccurs="0" maxOccurs="unbounded"/>
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+            </xsd:sequence>
+          </xsd:extension>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:element name="ResponseHeader" type="ns2:ResponseHeader"/>
+    </xsd:schema>
+    <xs:schema targetNamespace="http://vodafone.com.tr/ServiceCatalog/Business/External/RenewExternalEncryptionKey/v1" elementFormDefault="qualified" attributeFormDefault="unqualified" xmlns="http://vodafone.com.tr/ServiceCatalog/Business/External/RenewExternalEncryptionKey/v1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:complexType name="RenewExternalEncryptionKeyRequest">
+        <xs:sequence>
+          <xs:element ref="ns3:Request"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="RenewExternalEncryptionKeyResponse">
+        <xs:sequence>
+          <xs:element ref="ns3:Response" minOccurs="0"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="Request">
+        <xs:sequence>
+          <xs:element name="KeyName" type="xs:string"/>
+          <xs:element name="PINS">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="PIN" type="xs:string" maxOccurs="unbounded"/>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="Response"/>
+      <xs:element name="RenewExternalEncryptionKeyRequest" type="ns3:RenewExternalEncryptionKeyRequest"/>
+      <xs:element name="RenewExternalEncryptionKeyResponse" type="ns3:RenewExternalEncryptionKeyResponse"/>
+      <xs:element name="Request" type="ns3:Request"/>
+      <xs:element name="Response" type="ns3:Response"/>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:service name="HSMService">
+    <wsdl:port name="HTTP" binding="tns:HTTPBinding">
+      <soap:address location="http://localhost:10026/ServiceCatalog/HSMServices"/>
+    </wsdl:port>
+  </wsdl:service>
+  <wsdl:portType name="HSMServicesPortType">
+    <wsdl:operation name="GetEncryptionKey_v1">
+      <wsdl:input message="tns:GetEncryptionKeyRequest_v1"/>
+      <wsdl:output message="tns:GetEncryptionKeyResponse_v1"/>
+    </wsdl:operation>
+    <wsdl:operation name="RenewExternalEncryptionKey_v1">
+      <wsdl:input message="tns:RenewExternalEncryptionKeyRequest_v1"/>
+      <wsdl:output message="tns:RenewExternalEncryptionKeyResponse_v1"/>
+    </wsdl:operation>
+    <wsdl:operation name="ManageEncryption_v1">
+      <wsdl:input message="tns:ManageEncryptionRequest_v1"/>
+      <wsdl:output message="tns:ManageEncryptionResponse_v1"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="HTTPBinding" type="tns:HSMServicesPortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="GetEncryptionKey_v1">
+      <soap:operation style="rpc" soapAction="GetEncryptionKey_v1"/>
+      <wsdl:input>
+        <soap:body use="literal" parts="Header Body"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" parts="Header Body"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RenewExternalEncryptionKey_v1">
+      <soap:operation style="rpc" soapAction="RenewExternalEncryptionKey_v1"/>
+      <wsdl:input>
+        <soap:body use="literal" parts="Header Body"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" parts="Header Body"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ManageEncryption_v1">
+      <soap:operation style="rpc" soapAction="ManageEncryption_v1"/>
+      <wsdl:input>
+        <soap:body use="literal" parts="Header Body"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" parts="Header Body"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:message name="GetEncryptionKeyRequest_v1">
+    <wsdl:part name="Header" type="ns0:Header"/>
+    <wsdl:part name="Body" type="ns1:GetEncryptionKeyRequest"/>
+  </wsdl:message>
+  <wsdl:message name="GetEncryptionKeyResponse_v1">
+    <wsdl:part name="Header" type="ns2:ResponseHeader"/>
+    <wsdl:part name="Body" type="ns1:GetEncryptionKeyResponse"/>
+  </wsdl:message>
+  <wsdl:message name="RenewExternalEncryptionKeyRequest_v1">
+    <wsdl:part name="Header" type="ns0:Header"/>
+    <wsdl:part name="Body" type="ns3:RenewExternalEncryptionKeyRequest"/>
+  </wsdl:message>
+  <wsdl:message name="RenewExternalEncryptionKeyResponse_v1">
+    <wsdl:part name="Header" type="ns2:ResponseHeader"/>
+    <wsdl:part name="Body" type="ns3:RenewExternalEncryptionKeyResponse"/>
+  </wsdl:message>
+  <wsdl:message name="ManageEncryptionRequest_v1">
+    <wsdl:part name="Header" type="ns0:Header"/>
+    <wsdl:part name="Body" type="ns4:ManageEncryptionRequest"/>
+  </wsdl:message>
+  <wsdl:message name="ManageEncryptionResponse_v1">
+    <wsdl:part name="Header" type="ns2:ResponseHeader"/>
+    <wsdl:part name="Body" type="ns4:ManageEncryptionResponse"/>
+  </wsdl:message>
+</wsdl:definitions>

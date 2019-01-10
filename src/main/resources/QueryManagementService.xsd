@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is JAX-WS RI 2.1.6 in JDK 6. --><xs:schema xmlns:tns="http://query.enabler.vdms.oksijen.com" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://query.enabler.vdms.oksijen.com">
+
+<xs:element name="queryDeviceInformation" type="tns:queryDeviceInformation"></xs:element>
+
+<xs:element name="queryDeviceInformationResponse" type="tns:queryDeviceInformationResponse"></xs:element>
+
+<xs:element name="queryImeiChangeStatus" type="tns:queryImeiChangeStatus"></xs:element>
+
+<xs:element name="queryImeiChangeStatusResponse" type="tns:queryImeiChangeStatusResponse"></xs:element>
+
+<xs:element name="queryImeiImsiByMsisdn" type="tns:queryImeiImsiByMsisdn"></xs:element>
+
+<xs:element name="queryImeiImsiByMsisdnResponse" type="tns:queryImeiImsiByMsisdnResponse"></xs:element>
+
+<xs:element name="queryImeiStatus" type="tns:queryImeiStatus"></xs:element>
+
+<xs:element name="queryImeiStatusResponse" type="tns:queryImeiStatusResponse"></xs:element>
+
+<xs:complexType name="queryImeiImsiByMsisdn">
+<xs:sequence>
+<xs:element name="username" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="password" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="msisdnArray" type="xs:string" minOccurs="0" maxOccurs="unbounded"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="queryImeiImsiByMsisdnResponse">
+<xs:sequence>
+<xs:element name="QueryImeiImsiByMsisdnResp" type="tns:queryImeiImsiByMsisdnResp" form="qualified" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="queryImeiImsiByMsisdnResp">
+<xs:complexContent>
+<xs:extension base="tns:baseResp">
+<xs:sequence>
+<xs:element name="msisdnImeiImsiResponse" type="tns:msisdnImeiImsiResp" nillable="true" minOccurs="0" maxOccurs="unbounded"></xs:element>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="baseResp">
+<xs:sequence>
+<xs:element name="resultCode" type="xs:int"></xs:element>
+<xs:element name="resultDescription" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="msisdnImeiImsiResp">
+<xs:complexContent>
+<xs:extension base="tns:baseResp">
+<xs:sequence>
+<xs:element name="imei" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="imsi" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="msisdn" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="queryImeiStatus">
+<xs:sequence>
+<xs:element name="username" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="password" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="imeiArray" type="xs:string" minOccurs="0" maxOccurs="unbounded"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="queryImeiStatusResponse">
+<xs:sequence>
+<xs:element name="QueryImeiStatusResp" type="tns:queryImeiStatusResp" form="qualified" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="queryImeiStatusResp">
+<xs:complexContent>
+<xs:extension base="tns:baseResp">
+<xs:sequence>
+<xs:element name="imeiStatusResponse" type="tns:imeiStatusResp" nillable="true" minOccurs="0" maxOccurs="unbounded"></xs:element>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="imeiStatusResp">
+<xs:complexContent>
+<xs:extension base="tns:baseResp">
+<xs:sequence>
+<xs:element name="imei" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="status" type="tns:enumImeiStatus" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="queryDeviceInformation">
+<xs:sequence>
+<xs:element name="username" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="password" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="msisdnArray" type="xs:string" minOccurs="0" maxOccurs="unbounded"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="queryDeviceInformationResponse">
+<xs:sequence>
+<xs:element name="QueryDeviceInformationResp" type="tns:queryDeviceInformationResp" form="qualified" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="queryDeviceInformationResp">
+<xs:complexContent>
+<xs:extension base="tns:baseResp">
+<xs:sequence>
+<xs:element name="deviceInformationResponse" type="tns:deviceInformationResp" nillable="true" minOccurs="0" maxOccurs="unbounded"></xs:element>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="deviceInformationResp">
+<xs:complexContent>
+<xs:extension base="tns:baseResp">
+<xs:sequence>
+<xs:element name="deviceInformation" type="tns:deviceInformation" minOccurs="0"></xs:element>
+<xs:element name="msisdn" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="deviceInformation">
+<xs:complexContent>
+<xs:extension base="tns:baseModel">
+<xs:sequence>
+<xs:element name="imei" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="manufacturer" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="model" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="platform" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="baseModel">
+<xs:sequence></xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="queryImeiChangeStatus">
+<xs:sequence>
+<xs:element name="username" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="password" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="imeiChangeStatusRequestArray" type="tns:imeiChangeStatusRequest" minOccurs="0" maxOccurs="unbounded"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="imeiChangeStatusRequest">
+<xs:complexContent>
+<xs:extension base="tns:baseModel">
+<xs:sequence>
+<xs:element name="msisdn" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="startDate" type="xs:long"></xs:element>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="queryImeiChangeStatusResponse">
+<xs:sequence>
+<xs:element name="QueryImeiChangeStatusResp" type="tns:queryImeiChangeStatusResp" form="qualified" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="queryImeiChangeStatusResp">
+<xs:complexContent>
+<xs:extension base="tns:baseResp">
+<xs:sequence>
+<xs:element name="imeiChangeStatusResponse" type="tns:imeiChangeStatusResp" nillable="true" minOccurs="0" maxOccurs="unbounded"></xs:element>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="imeiChangeStatusResp">
+<xs:complexContent>
+<xs:extension base="tns:baseResp">
+<xs:sequence>
+<xs:element name="msisdn" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="status" type="tns:enumImeiChangeStatus" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:simpleType name="enumImeiStatus">
+<xs:restriction base="xs:string">
+<xs:enumeration value="ACTIVE"></xs:enumeration>
+<xs:enumeration value="INACTIVE"></xs:enumeration>
+</xs:restriction>
+</xs:simpleType>
+
+<xs:simpleType name="enumImeiChangeStatus">
+<xs:restriction base="xs:string">
+<xs:enumeration value="CHANGED"></xs:enumeration>
+<xs:enumeration value="NOT_CHANGED"></xs:enumeration>
+</xs:restriction>
+</xs:simpleType>
+</xs:schema>

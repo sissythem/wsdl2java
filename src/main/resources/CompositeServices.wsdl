@@ -1,0 +1,918 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Created by TIBCO WSDL-->
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns9="http://vodafone.com.tr/ServiceCatalog/Business/Composite/CreateAsyncProcess/v1" xmlns:ns12="http://vodafone.com.tr/ServiceCatalog/Business/AccountManagement/CreateAlert/v1" xmlns:ns5="http://vodafone.com.tr/ServiceCatalog/Business/Composite/ModifyAccountBillingProfileAndNotification/v1" xmlns:ns6="http://vodafone.com.tr/ServiceCatalog/Business/Composite/ModifyBarringStatus/v1" xmlns:ns10="http://vodafone.com.tr/ServiceCatalog/Business/Composite/ManageLoyalty/v1" xmlns:ns7="http://vodafone.com.tr/ServiceCatalog/Business/Composite/ActivateCreditCardAndSMSNotification/v1" xmlns:ns11="http://vodafone.com.tr/ServiceCatalog/Business/Composite/CreateOrderAndSMSNotification/v1" xmlns:ns8="http://vodafone.com.tr/ServiceCatalog/Business/Composite/CreateDunningWorkFlow/v1" xmlns:ns2="http://vodafone.com.tr/EAI/Common/ResponseCodes" xmlns:ns1="http://vodafone.com.tr/ServiceCatalog/Business/Composite/CreateAdjustmentAndSMSNotification/v1" xmlns:ns4="http://vodafone.com.tr/ServiceCatalog/Business/Composite/GetCompositeStatus/v1" xmlns:ns3="http://vodafone.com.tr/ServiceCatalog/Business/Composite/ReloadCompositeConfig/v1" xmlns:tns="http://vodafone.com.tr/ServiceCatalog/Business/CompositeServices" xmlns:ns0="http://vodafone.com.tr/EAI/Common/Header" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="Untitled" targetNamespace="http://vodafone.com.tr/ServiceCatalog/Business/CompositeServices">
+    <wsdl:types>
+        <xs:schema xmlns="http://vodafone.com.tr/ServiceCatalog/Business/Composite/ModifyAccountBillingProfileAndNotification/v1" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://vodafone.com.tr/ServiceCatalog/Business/Composite/ModifyAccountBillingProfileAndNotification/v1" elementFormDefault="qualified" attributeFormDefault="unqualified">
+            <xs:complexType name="ModifyAccountBillingProfileAndNotificationRequest">
+                <xs:sequence>
+                    <xs:element ref="ns5:Request"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="ModifyAccountBillingProfileAndNotificationResponse">
+                <xs:sequence>
+                    <xs:element ref="ns5:Response" minOccurs="0"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="Request">
+                <xs:sequence>
+                    <xs:element name="SendSMS" minOccurs="0">
+                        <xs:complexType>
+                            <xs:sequence>
+                                <xs:element name="MSISDN" type="xs:string" minOccurs="0"/>
+                            </xs:sequence>
+                        </xs:complexType>
+                    </xs:element>
+                    <xs:element name="BillingAccount">
+                        <xs:complexType>
+                            <xs:sequence>
+                                <xs:element name="ListAccounts">
+                                    <xs:complexType>
+                                        <xs:sequence>
+                                            <xs:element name="AccountId" maxOccurs="unbounded">
+                                                <xs:complexType>
+                                                    <xs:sequence>
+                                                        <xs:element name="ExternalId" type="xs:string"/>
+                                                    </xs:sequence>
+                                                </xs:complexType>
+                                            </xs:element>
+                                        </xs:sequence>
+                                    </xs:complexType>
+                                </xs:element>
+                                <xs:element name="BillingProfile" minOccurs="0">
+                                    <xs:complexType>
+                                        <xs:sequence>
+                                            <xs:element name="BillFrequency" type="xs:string" minOccurs="0"/>
+                                            <xs:element name="BillPeriod" type="xs:string"/>
+                                            <xs:element name="BillType" type="xs:string"/>
+                                            <xs:element name="EffectiveDate" type="xs:string" minOccurs="0"/>
+                                            <xs:element name="InvoiceAttributes" minOccurs="0">
+                                                <xs:complexType>
+                                                    <xs:sequence>
+                                                        <xs:element name="CDInvoiceFlag" type="xs:string" minOccurs="0"/>
+                                                        <xs:element name="CDReportFlag" type="xs:string" minOccurs="0"/>
+                                                        <xs:element name="InvoiceDueDateReminder" type="xs:string" minOccurs="0"/>
+                                                        <xs:element name="InvoiceGenerationReminder" type="xs:string" minOccurs="0"/>
+                                                        <xs:element name="InvoiceLimit" type="xs:string" minOccurs="0"/>
+                                                        <xs:element name="PaymentTerm" type="xs:string" minOccurs="0"/>
+                                                        <xs:element name="SingleEnvelopeFlag" type="xs:string" minOccurs="0"/>
+                                                    </xs:sequence>
+                                                </xs:complexType>
+                                            </xs:element>
+                                            <xs:element name="MediaType" type="xs:string" minOccurs="0"/>
+                                            <xs:element name="PostingMethod" type="xs:string" minOccurs="0"/>
+                                        </xs:sequence>
+                                    </xs:complexType>
+                                </xs:element>
+                                <xs:element name="CustomerId">
+                                    <xs:complexType>
+                                        <xs:sequence>
+                                            <xs:element name="ExternalId" type="xs:string"/>
+                                        </xs:sequence>
+                                    </xs:complexType>
+                                </xs:element>
+                                <xs:element name="EffectiveDate" type="xs:string"/>
+                            </xs:sequence>
+                        </xs:complexType>
+                    </xs:element>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="RequestComposite">
+                <xs:sequence>
+                    <xs:any processContents="lax" namespace="##any"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="Response">
+                <xs:sequence>
+                    <xs:any processContents="lax" namespace="##any"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="ModifyAccountBillingProfileAndNotificationRequest" type="ns5:ModifyAccountBillingProfileAndNotificationRequest"/>
+            <xs:element name="ModifyAccountBillingProfileAndNotificationResponse" type="ns5:ModifyAccountBillingProfileAndNotificationResponse"/>
+            <xs:element name="Request" type="ns5:Request"/>
+            <xs:element name="RequestComposite" type="ns5:RequestComposite"/>
+            <xs:element name="Response" type="ns5:Response"/>
+        </xs:schema>
+        <xs:schema xmlns="http://vodafone.com.tr/ServiceCatalog/Business/Composite/CreateAdjustmentAndSMSNotification/v1" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://vodafone.com.tr/ServiceCatalog/Business/Composite/CreateAdjustmentAndSMSNotification/v1" elementFormDefault="qualified" attributeFormDefault="unqualified">
+            <xs:complexType name="CreateAdjustmentAndSMSNotificationRequest">
+                <xs:sequence>
+                    <xs:element ref="ns1:Request"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="CreateAdjustmentAndSMSNotificationResponse">
+                <xs:sequence>
+                    <xs:element ref="ns1:Response" minOccurs="0"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="Request">
+                <xs:sequence>
+                    <xs:element name="ExternalId" type="xs:string" minOccurs="0"/>
+                    <xs:element name="ExternalComponentId" type="xs:string" minOccurs="0"/>
+                    <xs:element name="BillAccountId" type="xs:string"/>
+                    <xs:element name="Adjustment">
+                        <xs:complexType>
+                            <xs:sequence>
+                                <xs:element name="Amount" type="xs:int"/>
+                                <xs:element name="Currency" type="xs:string"/>
+                                <xs:element name="Description" type="xs:string" minOccurs="0"/>
+                                <xs:element name="Reason" type="xs:string"/>
+                                <xs:element name="Type" type="xs:string"/>
+                                <xs:element name="StartDate" type="xs:dateTime"/>
+                                <xs:element name="CreatorGroup" type="xs:string" minOccurs="0"/>
+                                <xs:element name="TaxPercentage" type="xs:string"/>
+                                <xs:element name="PricingCode" type="xs:string" minOccurs="0"/>
+                            </xs:sequence>
+                        </xs:complexType>
+                    </xs:element>
+                    <xs:element name="SendSMS" minOccurs="0">
+                        <xs:complexType>
+                            <xs:sequence>
+                                <xs:element name="MSISDN" type="xs:string" minOccurs="0"/>
+                            </xs:sequence>
+                        </xs:complexType>
+                    </xs:element>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="RequestComposite">
+                <xs:sequence>
+                    <xs:any processContents="lax" namespace="##any"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="Response">
+                <xs:sequence>
+                    <xs:any processContents="lax" namespace="##any"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="CreateAdjustmentAndSMSNotificationRequest" type="ns1:CreateAdjustmentAndSMSNotificationRequest"/>
+            <xs:element name="CreateAdjustmentAndSMSNotificationResponse" type="ns1:CreateAdjustmentAndSMSNotificationResponse"/>
+            <xs:element name="Request" type="ns1:Request"/>
+            <xs:element name="RequestComposite" type="ns1:RequestComposite"/>
+            <xs:element name="Response" type="ns1:Response"/>
+        </xs:schema>
+        <xs:schema xmlns="http://vodafone.com.tr/ServiceCatalog/Business/AccountManagement/CreateAlert/v1" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://vodafone.com.tr/ServiceCatalog/Business/AccountManagement/CreateAlert/v1" elementFormDefault="qualified" attributeFormDefault="unqualified">
+            <xs:complexType name="Activity">
+                <xs:sequence>
+                    <xs:element name="ActionDate" type="xs:dateTime" minOccurs="0"/>
+                    <xs:element name="ActionId" type="xs:string" minOccurs="0"/>
+                    <xs:element name="Description" type="xs:string" minOccurs="0"/>
+                    <xs:element name="ScheduledDate" type="xs:dateTime" minOccurs="0"/>
+                    <xs:element name="ActionStatus" type="xs:string"/>
+                    <xs:element name="DunningStep" type="xs:string"/>
+                    <xs:element name="Category" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="AlertEvent">
+                <xs:sequence>
+                    <xs:element name="TotalInvoiceAmount" type="xs:string" minOccurs="0"/>
+                    <xs:element name="OrderReasonCode" type="xs:string" minOccurs="0"/>
+                    <xs:element name="CollectableId" type="xs:string" minOccurs="0"/>
+                    <xs:element name="DunningScenario" type="xs:string" minOccurs="0"/>
+                    <xs:element name="CutOffDate" type="xs:dateTime" minOccurs="0"/>
+                    <xs:element name="CustomerCode" type="xs:string"/>
+                    <xs:element name="ActionType" type="xs:string" minOccurs="0"/>
+                    <xs:element name="AlertType" type="xs:string"/>
+                    <xs:element name="TotalAmountDue" type="xs:string" minOccurs="0"/>
+                    <xs:element name="BillingAccountCode" type="xs:string"/>
+                    <xs:element name="Comments" type="xs:string" minOccurs="0"/>
+                    <xs:element name="Priority" type="xs:string" minOccurs="0"/>
+                    <xs:element name="Source" type="xs:string"/>
+                    <xs:element name="InvoiceDueDate" type="xs:dateTime" minOccurs="0"/>
+                    <xs:element name="InvoiceId" type="xs:string"/>
+                    <xs:element name="Status" type="xs:string"/>
+                    <xs:element name="Activity" type="ns12:Activity" minOccurs="0" maxOccurs="unbounded"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="Asset">
+                <xs:sequence>
+                    <xs:element name="AssetId" type="xs:string" minOccurs="0"/>
+                    <xs:element name="IntegrationId" type="xs:string" minOccurs="0"/>
+                    <xs:element name="MSISDN" type="xs:string" minOccurs="0"/>
+                    <xs:element name="PartNumber" type="xs:string" minOccurs="0"/>
+                    <xs:element name="CreditStatus" type="xs:string" minOccurs="0"/>
+                    <xs:element name="CustomerStatus" type="xs:string" minOccurs="0"/>
+                    <xs:element name="DocumentStatus" type="xs:string" minOccurs="0"/>
+                    <xs:element name="DunningStatus" type="xs:string" minOccurs="0"/>
+                    <xs:element name="FraudStatus" type="xs:string" minOccurs="0"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="CreateAlertRequest">
+                <xs:sequence>
+                    <xs:element ref="ns12:Request"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="CreateAlertResponse">
+                <xs:sequence>
+                    <xs:element ref="ns12:Response" minOccurs="0"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="ListOfVfDunningOutput">
+                <xs:sequence>
+                    <xs:element ref="ns12:Asset" minOccurs="0" maxOccurs="unbounded"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="Request">
+                <xs:sequence>
+                    <xs:element name="AlertEvent" type="ns12:AlertEvent"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="Response">
+                <xs:sequence>
+                    <xs:element name="ActionId" type="xs:string" minOccurs="0"/>
+                    <xs:element ref="ns12:ListOfVfDunningOutput" minOccurs="0"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="Asset" type="ns12:Asset"/>
+            <xs:element name="CreateAlertRequest" type="ns12:CreateAlertRequest"/>
+            <xs:element name="CreateAlertResponse" type="ns12:CreateAlertResponse"/>
+            <xs:element name="ListOfVfDunningOutput" type="ns12:ListOfVfDunningOutput"/>
+            <xs:element name="Request" type="ns12:Request"/>
+            <xs:element name="Response" type="ns12:Response"/>
+        </xs:schema>
+        <xs:schema xmlns="http://vodafone.com.tr/ServiceCatalog/Business/Composite/ActivateCreditCardAndSMSNotification/v1" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://vodafone.com.tr/ServiceCatalog/Business/Composite/ActivateCreditCardAndSMSNotification/v1" elementFormDefault="qualified" attributeFormDefault="unqualified">
+            <xs:complexType name="ActivateCreditCardAndSMSNotificationRequest">
+                <xs:sequence>
+                    <xs:element ref="ns7:Request"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="Request">
+                <xs:sequence>
+                    <xs:element name="BillAccountCode" type="xs:string"/>
+                    <xs:element name="CustomerCode" type="xs:string" minOccurs="0"/>
+                    <xs:element name="PayerFirstName" type="xs:string" minOccurs="0"/>
+                    <xs:element name="PayerLastName" type="xs:string" minOccurs="0"/>
+                    <xs:element name="CreditCardExpirationDate" type="xs:string"/>
+                    <xs:element name="CreditCardNumber" type="xs:string"/>
+                    <xs:element name="CreditCardType" type="xs:string"/>
+                    <xs:element name="NotificationFlag" type="xs:boolean"/>
+                    <xs:element name="NotificationMSISDN" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="RequestComposite">
+                <xs:sequence>
+                    <xs:any processContents="lax" namespace="##any"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="ActivateCreditCardAndSMSNotificationRequest" type="ns7:ActivateCreditCardAndSMSNotificationRequest"/>
+            <xs:element name="Request" type="ns7:Request"/>
+            <xs:element name="RequestComposite" type="ns7:RequestComposite"/>
+        </xs:schema>
+        <xs:schema xmlns="http://vodafone.com.tr/ServiceCatalog/Business/Composite/CreateAsyncProcess/v1" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://vodafone.com.tr/ServiceCatalog/Business/Composite/CreateAsyncProcess/v1" elementFormDefault="qualified" attributeFormDefault="unqualified">
+            <xs:complexType name="CreateAsyncProcessRequest">
+                <xs:sequence>
+                    <xs:element ref="ns9:Request"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="CreateAsyncProcessResponse">
+                <xs:sequence>
+                    <xs:element ref="ns9:Response" minOccurs="0"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="Request">
+                <xs:sequence>
+                    <xs:element name="Operation" type="xs:string"/>
+                    <xs:element name="Service" type="xs:string"/>
+                    <xs:element name="Description" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="Response">
+                <xs:sequence>
+                    <xs:element name="FlowId" type="xs:integer"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="CreateAsyncProcessRequest" type="ns9:CreateAsyncProcessRequest"/>
+            <xs:element name="CreateAsyncProcessResponse" type="ns9:CreateAsyncProcessResponse"/>
+            <xs:element name="Request" type="ns9:Request"/>
+            <xs:element name="Response" type="ns9:Response"/>
+        </xs:schema>
+        <xs:schema xmlns="http://vodafone.com.tr/EAI/Common/Header" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://vodafone.com.tr/EAI/Common/Header" elementFormDefault="qualified" attributeFormDefault="unqualified">
+            <xs:complexType name="Attribute">
+                <xs:sequence>
+                    <xs:element name="Name" type="xs:string"/>
+                    <xs:element name="Value" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="BusinessInterface">
+                <xs:sequence>
+                    <xs:choice minOccurs="0">
+                        <xs:element name="Domain" type="xs:string"/>
+                        <xs:element name="Service" type="xs:string"/>
+                    </xs:choice>
+                    <xs:element name="Operation" type="xs:string" minOccurs="0"/>
+                    <xs:element name="Version" type="xs:integer" minOccurs="0"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="Credentials">
+                <xs:sequence>
+                    <xs:element name="ApplicationId" type="xs:string"/>
+                    <xs:element name="User" type="xs:string"/>
+                    <xs:element name="Password" type="xs:string" minOccurs="0"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="Flow">
+                <xs:sequence>
+                    <xs:element name="Owner" type="xs:string" minOccurs="0"/>
+                    <xs:element name="OwnerId" type="xs:string" minOccurs="0"/>
+                    <xs:element name="ProcessId" type="xs:string" minOccurs="0"/>
+                    <xs:element name="BusinessInterface" type="ns0:BusinessInterface" minOccurs="0"/>
+                    <xs:element name="TechnicalInterface" type="ns0:TechnicalInterface" minOccurs="0"/>
+                    <xs:element name="Timestamp" type="xs:dateTime" minOccurs="0"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="Header">
+                <xs:sequence>
+                    <xs:element name="RequestId" type="xs:string" minOccurs="0"/>
+                    <xs:element name="SourceSystem" type="xs:string"/>
+                    <xs:element name="ReplyExpected">
+                        <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                                <xs:enumeration value="No"/>
+                                <xs:enumeration value="Now"/>
+                                <xs:enumeration value="Later"/>
+                            </xs:restriction>
+                        </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="QoS" minOccurs="0">
+                        <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                                <xs:enumeration value="G"/>
+                                <xs:enumeration value="R"/>
+                            </xs:restriction>
+                        </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="Schedule" type="xs:dateTime" minOccurs="0"/>
+                    <xs:element name="CorrelationId" type="xs:string" minOccurs="0"/>
+                    <xs:element name="Priority" type="xs:integer" minOccurs="0"/>
+                    <xs:element name="Credentials" type="ns0:Credentials" maxOccurs="unbounded"/>
+                    <xs:element name="ProxySystem" type="xs:string" minOccurs="0"/>
+                    <xs:element name="ForceSimulate" type="xs:boolean" minOccurs="0"/>
+                    <xs:element name="Attributes" minOccurs="0">
+                        <xs:complexType>
+                            <xs:sequence>
+                                <xs:element name="Attribute" type="ns0:Attribute" minOccurs="0" maxOccurs="unbounded"/>
+                            </xs:sequence>
+                        </xs:complexType>
+                    </xs:element>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="HeaderExtended">
+                <xs:complexContent>
+                    <xs:extension base="ns0:Header">
+                        <xs:sequence>
+                            <xs:element name="BusinessInterface" type="ns0:BusinessInterface" minOccurs="0"/>
+                            <xs:element name="TechnicalInterface" type="ns0:TechnicalInterface" minOccurs="0"/>
+                            <xs:element name="TargetSystem" type="xs:string" minOccurs="0"/>
+                            <xs:element name="CreationTimestamp" type="xs:dateTime" minOccurs="0"/>
+                            <xs:element name="TimeOut" type="xs:string" minOccurs="0"/>
+                            <xs:element name="Tries" type="xs:string" minOccurs="0"/>
+                            <xs:element name="MaxTries" type="xs:integer" minOccurs="0"/>
+                            <xs:element name="Repub" type="xs:boolean" minOccurs="0"/>
+                            <xs:element name="RepubTime" type="xs:string" minOccurs="0"/>
+                            <xs:element name="History" type="ns0:History" minOccurs="0"/>
+                            <xs:element name="Transport" type="ns0:Transport" minOccurs="0"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:complexType name="History">
+                <xs:sequence>
+                    <xs:element name="Flow" type="ns0:Flow" minOccurs="0" maxOccurs="unbounded"/>
+                    <xs:element name="Step" type="xs:long" minOccurs="0"/>
+                    <xs:element name="NumSteps" type="xs:long" minOccurs="0"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="TechnicalInterface">
+                <xs:sequence>
+                    <xs:element name="Domain" type="xs:string" minOccurs="0"/>
+                    <xs:element name="Interface" type="xs:string" minOccurs="0"/>
+                    <xs:element name="Version" type="xs:integer" minOccurs="0"/>
+                    <xs:element name="MethodCall" type="xs:string" minOccurs="0"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="Transport">
+                <xs:sequence>
+                    <xs:element name="ReplyTo" type="xs:string" minOccurs="0"/>
+                    <xs:element name="Destination" type="xs:string" minOccurs="0"/>
+                    <xs:element name="MessageId" type="xs:string" minOccurs="0"/>
+                    <xs:element name="SOAPAction" type="xs:string" minOccurs="0"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="Header" type="ns0:Header"/>
+        </xs:schema>
+        <xs:schema xmlns="http://vodafone.com.tr/ServiceCatalog/Business/Composite/CreateDunningWorkFlow/v1" xmlns:ns1="http://vodafone.com.tr/ServiceCatalog/Business/AccountManagement/CreateAlert/v1" xmlns:ns0="http://vodafone.com.tr/ServiceCatalog/Business/CustomerInquiries/GetCustomer/v1" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://vodafone.com.tr/ServiceCatalog/Business/Composite/CreateDunningWorkFlow/v1" elementFormDefault="qualified" attributeFormDefault="unqualified">
+            <xs:import namespace="http://vodafone.com.tr/ServiceCatalog/Business/AccountManagement/CreateAlert/v1"/>
+            <xs:complexType name="CreateDunningWorkFlowRequest">
+                <xs:sequence>
+                    <xs:element ref="ns8:Request"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="CreateDunningWorkFlowResponse">
+                <xs:sequence>
+                    <xs:element ref="ns8:Response" minOccurs="0"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="ListOfAssets">
+                <xs:sequence>
+                    <xs:element ref="ns1:Asset" minOccurs="0" maxOccurs="unbounded"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="OrderParameters">
+                <xs:sequence>
+                    <xs:element name="CollectableId" type="xs:string"/>
+                    <xs:element name="ActionType" type="xs:string"/>
+                    <xs:element name="OrderReason" type="xs:string"/>
+                    <xs:element name="SubTypeCode" type="xs:string"/>
+                    <xs:element name="ActionReason" type="xs:string"/>
+                    <xs:element name="ActionCode" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="Request">
+                <xs:sequence>
+                    <xs:element name="CustomerCode" type="xs:string"/>
+                    <xs:element name="BillingAccountCode" type="xs:string"/>
+                    <xs:element name="OrderParameters" type="ns8:OrderParameters"/>
+                    <xs:element name="ListOfAssets" type="ns8:ListOfAssets"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="RequestComposite">
+                <xs:sequence>
+                    <xs:any processContents="lax" namespace="##any"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="Response"/>
+            <xs:element name="CreateDunningWorkFlowRequest" type="ns8:CreateDunningWorkFlowRequest"/>
+            <xs:element name="CreateDunningWorkFlowResponse" type="ns8:CreateDunningWorkFlowResponse"/>
+            <xs:element name="OrderParameters" type="ns8:OrderParameters"/>
+            <xs:element name="Request" type="ns8:Request"/>
+            <xs:element name="RequestComposite" type="ns8:RequestComposite"/>
+            <xs:element name="Response" type="ns8:Response"/>
+        </xs:schema>
+        <xs:schema xmlns="http://vodafone.com.tr/ServiceCatalog/Business/Composite/CreateOrderAndSMSNotification/v1" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://vodafone.com.tr/ServiceCatalog/Business/Composite/CreateOrderAndSMSNotification/v1" elementFormDefault="qualified" attributeFormDefault="unqualified">
+            <xs:complexType name="Asset">
+                <xs:sequence>
+                    <xs:element name="AssetIntegrationId" type="xs:string" minOccurs="0"/>
+                    <xs:element name="PartNumber" type="xs:string" minOccurs="0"/>
+                    <xs:element name="ActionCode" type="xs:string" minOccurs="0"/>
+                    <xs:element name="Product" type="xs:string" minOccurs="0"/>
+                    <xs:element name="ServiceId" type="xs:string" minOccurs="0"/>
+                    <xs:element name="AttributeList" type="ns11:AttributeList" minOccurs="0"/>
+                    <xs:element name="Asset" type="ns11:Asset" minOccurs="0" maxOccurs="unbounded"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="AssetList">
+                <xs:sequence>
+                    <xs:element name="Asset" type="ns11:Asset" minOccurs="0" maxOccurs="unbounded"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="Attribute">
+                <xs:sequence>
+                    <xs:element name="ActionCode" type="xs:string" minOccurs="0"/>
+                    <xs:element name="Name" type="xs:string" minOccurs="0"/>
+                    <xs:element name="Value" type="xs:string" minOccurs="0"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="AttributeList">
+                <xs:sequence>
+                    <xs:element name="Attribute" type="ns11:Attribute" minOccurs="0" maxOccurs="unbounded"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="CreateOrderAndSMSNotificationRequest">
+                <xs:sequence>
+                    <xs:element ref="ns11:Request"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="Operation">
+                <xs:sequence>
+                    <xs:element name="Type" type="xs:string" minOccurs="0"/>
+                    <xs:element name="Operation" type="xs:string" minOccurs="0"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="OperationList">
+                <xs:sequence>
+                    <xs:element name="Operation" type="ns11:Operation" minOccurs="0" maxOccurs="unbounded"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="Request">
+                <xs:sequence>
+                    <xs:element name="MSISDN" type="xs:string" minOccurs="0"/>
+                    <xs:element name="Description" type="xs:string" minOccurs="0"/>
+                    <xs:element name="SourceSystem" type="xs:string" minOccurs="0"/>
+                    <xs:element name="OrderSubType" type="xs:string" minOccurs="0"/>
+                    <xs:element name="AccountNumber" type="xs:string" minOccurs="0"/>
+                    <xs:element name="BillingAccountCode" type="xs:string" minOccurs="0"/>
+                    <xs:element name="RequestShipDate" type="xs:dateTime" minOccurs="0"/>
+                    <xs:element name="Subscriber" type="ns11:Subscriber" minOccurs="0" maxOccurs="unbounded"/>
+                    <xs:element name="AssetList" type="ns11:AssetList" minOccurs="0"/>
+                    <xs:element name="OperationList" type="ns11:OperationList" minOccurs="0"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="RequestComposite">
+                <xs:sequence>
+                    <xs:any processContents="lax" namespace="##any"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="Subscriber">
+                <xs:sequence>
+                    <xs:element name="AssetMethod" type="xs:string" minOccurs="0"/>
+                    <xs:element name="AssetIntegrationId" type="xs:string" minOccurs="0"/>
+                    <xs:element name="PartNumber" type="xs:string" minOccurs="0"/>
+                    <xs:element name="BillingAccount" type="xs:string" minOccurs="0"/>
+                    <xs:element name="ActionCode" type="xs:string" minOccurs="0"/>
+                    <xs:element name="ActionType" type="xs:string" minOccurs="0"/>
+                    <xs:element name="ActionReason" type="xs:string" minOccurs="0"/>
+                    <xs:element name="MSISDN" type="xs:string" minOccurs="0"/>
+                    <xs:element name="Product" type="xs:string" minOccurs="0"/>
+                    <xs:element name="ICCID" type="xs:string" minOccurs="0"/>
+                    <xs:element name="ServiceId" type="xs:string" minOccurs="0"/>
+                    <xs:element name="AttributeList" type="ns11:AttributeList" minOccurs="0"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="CreateOrderAndSMSNotificationRequest" type="ns11:CreateOrderAndSMSNotificationRequest"/>
+            <xs:element name="Request" type="ns11:Request"/>
+            <xs:element name="RequestComposite" type="ns11:RequestComposite"/>
+        </xs:schema>
+        <xsd:schema xmlns="http://vodafone.com.tr/EAI/Common/ResponseCodes" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://vodafone.com.tr/EAI/Common/ResponseCodes" elementFormDefault="qualified" attributeFormDefault="unqualified">
+            <xsd:complexType name="Attribute">
+                <xsd:sequence>
+                    <xsd:element name="Name" type="xsd:string"/>
+                    <xsd:element name="Value" type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="ResponseCodes">
+                <xsd:sequence>
+                    <xsd:element name="ResponseCode" type="xsd:string"/>
+                    <xsd:element name="ResponseMsg" type="xsd:string" minOccurs="0"/>
+                    <xsd:element name="ErrorCode" type="xsd:string" minOccurs="0"/>
+                    <xsd:element name="ErrorDescription" type="xsd:string" minOccurs="0"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="ResponseHeader">
+                <xsd:complexContent>
+                    <xsd:extension base="ns2:ResponseCodes">
+                        <xsd:sequence>
+                            <xsd:element name="RequestId" type="xsd:string" minOccurs="0"/>
+                            <xsd:element name="Domain" type="xsd:string" minOccurs="0"/>
+                            <xsd:element name="Service" type="xsd:string" minOccurs="0"/>
+                            <xsd:element name="Operation" type="xsd:string" minOccurs="0"/>
+                            <xsd:element name="Version" type="xsd:string" minOccurs="0"/>
+                            <xsd:element name="Attributes" minOccurs="0">
+                                <xsd:complexType>
+                                    <xsd:sequence>
+                                        <xsd:element name="Attribute" type="ns2:Attribute" minOccurs="0" maxOccurs="unbounded"/>
+                                    </xsd:sequence>
+                                </xsd:complexType>
+                            </xsd:element>
+                        </xsd:sequence>
+                    </xsd:extension>
+                </xsd:complexContent>
+            </xsd:complexType>
+            <xsd:element name="ResponseHeader" type="ns2:ResponseHeader"/>
+        </xsd:schema>
+        <xs:schema xmlns="http://vodafone.com.tr/ServiceCatalog/Business/Composite/ManageLoyalty/v1" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://vodafone.com.tr/ServiceCatalog/Business/Composite/ManageLoyalty/v1" elementFormDefault="qualified" attributeFormDefault="unqualified">
+            <xs:complexType name="ManageLoyaltyRequest">
+                <xs:sequence>
+                    <xs:element ref="ns10:Request"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="ManageLoyaltyResponse">
+                <xs:sequence>
+                    <xs:element ref="ns10:Response" minOccurs="0"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="Request">
+                <xs:sequence>
+                    <xs:element ref="ns10:LoyaltyId" minOccurs="0"/>
+                    <xs:element ref="ns10:Msisdn"/>
+                    <xs:element ref="ns10:ActionType" minOccurs="0"/>
+                    <xs:element name="ListType" type="xs:string" minOccurs="0"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="RequestComposite">
+                <xs:sequence>
+                    <xs:any processContents="lax" namespace="##any"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="Response"/>
+            <xs:element name="ActionType">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value=""/>
+                        <xs:enumeration value="1"/>
+                        <xs:enumeration value="2"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="LoyaltyId">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value=""/>
+                        <xs:enumeration value="1"/>
+                        <xs:enumeration value="2"/>
+                        <xs:enumeration value="3"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="ManageLoyaltyRequest" type="ns10:ManageLoyaltyRequest"/>
+            <xs:element name="ManageLoyaltyResponse" type="ns10:ManageLoyaltyResponse"/>
+            <xs:element name="Msisdn">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:length value="10"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="Request" type="ns10:Request"/>
+            <xs:element name="RequestComposite" type="ns10:RequestComposite"/>
+            <xs:element name="Response" type="ns10:Response"/>
+        </xs:schema>
+        <xs:schema xmlns="http://vodafone.com.tr/ServiceCatalog/Business/Composite/GetCompositeStatus/v1" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://vodafone.com.tr/ServiceCatalog/Business/Composite/GetCompositeStatus/v1" elementFormDefault="qualified" attributeFormDefault="unqualified">
+            <xs:complexType name="GetCompositeStatusRequest">
+                <xs:sequence>
+                    <xs:element ref="ns4:Request"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="GetCompositeStatusResponse">
+                <xs:sequence>
+                    <xs:element ref="ns4:Response" minOccurs="0"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="Request">
+                <xs:sequence>
+                    <xs:element name="RequestId" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="Response">
+                <xs:sequence>
+                    <xs:element name="Flow" type="xs:string"/>
+                    <xs:element name="Type" type="xs:string"/>
+                    <xs:element name="Status" type="xs:string"/>
+                    <xs:element name="Step" type="xs:integer"/>
+                    <xs:element name="Operation" type="xs:string"/>
+                    <xs:element name="ErrorCode" type="xs:integer" minOccurs="0"/>
+                    <xs:element name="ErrorDescription" type="xs:string" minOccurs="0"/>
+                    <xs:element name="RetryCount" type="xs:integer"/>
+                    <xs:element name="UpdateDate" type="xs:dateTime"/>
+                    <xs:element name="PublishDate" type="xs:dateTime"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="GetCompositeStatusRequest" type="ns4:GetCompositeStatusRequest"/>
+            <xs:element name="GetCompositeStatusResponse" type="ns4:GetCompositeStatusResponse"/>
+            <xs:element name="Request" type="ns4:Request"/>
+            <xs:element name="Response" type="ns4:Response"/>
+        </xs:schema>
+        <xs:schema xmlns="http://vodafone.com.tr/ServiceCatalog/Business/Composite/ModifyBarringStatus/v1" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://vodafone.com.tr/ServiceCatalog/Business/Composite/ModifyBarringStatus/v1" elementFormDefault="qualified" attributeFormDefault="unqualified">
+            <xs:complexType name="ModifyBarringStatusRequest">
+                <xs:sequence>
+                    <xs:element ref="ns6:Request"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="ModifyBarringStatusResponse">
+                <xs:sequence>
+                    <xs:element ref="ns6:Response" minOccurs="0"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="Request">
+                <xs:sequence>
+                    <xs:element name="ListOfMSISDN">
+                        <xs:complexType>
+                            <xs:sequence>
+                                <xs:element name="MSISDN" type="xs:string" maxOccurs="unbounded"/>
+                            </xs:sequence>
+                        </xs:complexType>
+                    </xs:element>
+                    <xs:element name="Commands" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="Response">
+                <xs:sequence>
+                    <xs:any processContents="lax" namespace="##any"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="Request" type="ns6:Request"/>
+            <xs:element name="Response" type="ns6:Response"/>
+        </xs:schema>
+        <xs:schema xmlns="http://vodafone.com.tr/ServiceCatalog/Business/Composite/ReloadCompositeConfig/v1" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://vodafone.com.tr/ServiceCatalog/Business/Composite/ReloadCompositeConfig/v1" elementFormDefault="qualified" attributeFormDefault="unqualified">
+            <xs:complexType name="ReloadCompositeConfigRequest">
+                <xs:sequence>
+                    <xs:element ref="ns3:Request"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="Request"/>
+            <xs:element name="ReloadCompositeConfigRequest" type="ns3:ReloadCompositeConfigRequest"/>
+            <xs:element name="Request" type="ns3:Request"/>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:service name="CompositeServices">
+        <wsdl:port name="HTTP" binding="tns:HTTPBinding">
+            <soap:address location="http://localhost:10097/ServiceCatalog/CompositeServices"/>
+        </wsdl:port>
+    </wsdl:service>
+    <wsdl:portType name="CompositeServicesPortType">
+        <wsdl:operation name="CreateAdjustmentAndSMSNotification_v1">
+            <wsdl:input message="tns:CreateAdjustmentAndSMSNotificationRequest_v1"/>
+            <wsdl:output message="tns:CreateAdjustmentAndSMSNotificationResponse_v1"/>
+        </wsdl:operation>
+        <wsdl:operation name="ReloadCompositeConfig_v1">
+            <wsdl:input message="tns:ReloadCompositeConfigRequest_v1"/>
+            <wsdl:output message="tns:ReloadCompositeConfigResponse_v1"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetCompositeStatus_v1">
+            <wsdl:input message="tns:GetCompositeStatusRequest_v1"/>
+            <wsdl:output message="tns:GetCompositeStatusResponse_v1"/>
+        </wsdl:operation>
+        <wsdl:operation name="ModifyAccountBillingProfileAndNotification_v1">
+            <wsdl:input message="tns:ModifyAccountBillingProfileAndNotificationRequest_v1"/>
+            <wsdl:output message="tns:ModifyAccountBillingProfileAndNotificationResponse_v1"/>
+        </wsdl:operation>
+        <wsdl:operation name="ModifyBarringStatus_v1">
+            <wsdl:input message="tns:ModifyBarringStatusRequest_v1"/>
+            <wsdl:output message="tns:ModifyBarringStatusResponse_v1"/>
+        </wsdl:operation>
+        <wsdl:operation name="ActivateCreditCardAndSMSNotification_v1">
+            <wsdl:input message="tns:ActivateCreditCardAndSMSNotificationRequest_v1"/>
+            <wsdl:output message="tns:ActivateCreditCardAndSMSNotificationResponse_v1"/>
+        </wsdl:operation>
+        <wsdl:operation name="CreateDunningWorkFlow_v1">
+            <wsdl:input message="tns:CreateDunningWorkFlowRequest_v1"/>
+            <wsdl:output message="tns:CreateDunningWorkFlowResponse_v1"/>
+        </wsdl:operation>
+        <wsdl:operation name="CreateAsyncProcess_v1">
+            <wsdl:input message="tns:CreateAsyncProcessRequest_v1"/>
+            <wsdl:output message="tns:CreateAsyncProcessResponse_v1"/>
+        </wsdl:operation>
+        <wsdl:operation name="ManageLoyalty_v1">
+            <wsdl:input message="tns:ManageLoyaltyRequest_v1"/>
+            <wsdl:output message="tns:ManageLoyaltyResponse_v1"/>
+        </wsdl:operation>
+        <wsdl:operation name="CreateOrderAndSMSNotification_v1">
+            <wsdl:input message="tns:CreateOrderAndSMSNotificationRequest_v1"/>
+            <wsdl:output message="tns:CreateOrderAndSMSNotificationResponse_v1"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="HTTPBinding" type="tns:CompositeServicesPortType">
+        <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="CreateAdjustmentAndSMSNotification_v1">
+            <soap:operation style="rpc" soapAction="CreateAdjustmentAndSMSNotification_v1"/>
+            <wsdl:input>
+                <soap:body use="literal" parts="Header Body"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="Header"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="ReloadCompositeConfig_v1">
+            <soap:operation style="rpc" soapAction="ReloadCompositeConfig_v1"/>
+            <wsdl:input>
+                <soap:body use="literal" parts="Header Body"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="Header"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetCompositeStatus_v1">
+            <soap:operation style="rpc" soapAction="GetCompositeStatus_v1"/>
+            <wsdl:input>
+                <soap:body use="literal" parts="Header Body"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="Header Body"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="ModifyAccountBillingProfileAndNotification_v1">
+            <soap:operation style="rpc" soapAction="ModifyAccountBillingProfileAndNotification_v1"/>
+            <wsdl:input>
+                <soap:body use="literal" parts="Header Body"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="Header Body"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="ModifyBarringStatus_v1">
+            <soap:operation style="rpc" soapAction="ModifyBarringStatus_v1"/>
+            <wsdl:input>
+                <soap:body use="literal" parts="Header Body"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="Header"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="ActivateCreditCardAndSMSNotification_v1">
+            <soap:operation style="rpc" soapAction="ActivateCreditCardAndSMSNotification_v1"/>
+            <wsdl:input>
+                <soap:body use="literal" parts="Header Body"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="Header"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="CreateDunningWorkFlow_v1">
+            <soap:operation style="rpc" soapAction="CreateDunningWorkFlow_v1"/>
+            <wsdl:input>
+                <soap:body use="literal" parts="Header Body"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="Header Body"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="CreateAsyncProcess_v1">
+            <soap:operation style="rpc" soapAction="CreateAsyncProcess_v1"/>
+            <wsdl:input>
+                <soap:body use="literal" parts="Header Body"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="Header Body"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="ManageLoyalty_v1">
+            <soap:operation style="rpc" soapAction="ManageLoyalty_v1"/>
+            <wsdl:input>
+                <soap:body use="literal" parts="Header Body"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="Header Body"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="CreateOrderAndSMSNotification_v1">
+            <soap:operation style="rpc" soapAction="CreateOrderAndSMSNotification_v1"/>
+            <wsdl:input>
+                <soap:body use="literal" parts="Header Body"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="Header"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:message name="CreateAdjustmentAndSMSNotificationRequest_v1">
+        <wsdl:part name="Header" type="ns0:Header"/>
+        <wsdl:part name="Body" type="ns1:CreateAdjustmentAndSMSNotificationRequest"/>
+    </wsdl:message>
+    <wsdl:message name="CreateAdjustmentAndSMSNotificationResponse_v1">
+        <wsdl:part name="Header" type="ns2:ResponseHeader"/>
+    </wsdl:message>
+    <wsdl:message name="ReloadCompositeConfigRequest_v1">
+        <wsdl:part name="Header" type="ns0:Header"/>
+        <wsdl:part name="Body" type="ns3:Request"/>
+    </wsdl:message>
+    <wsdl:message name="ReloadCompositeConfigResponse_v1">
+        <wsdl:part name="Header" type="ns2:ResponseHeader"/>
+    </wsdl:message>
+    <wsdl:message name="GetCompositeStatusRequest_v1">
+        <wsdl:part name="Header" type="ns0:Header"/>
+        <wsdl:part name="Body" type="ns4:GetCompositeStatusRequest"/>
+    </wsdl:message>
+    <wsdl:message name="GetCompositeStatusResponse_v1">
+        <wsdl:part name="Header" type="ns2:ResponseHeader"/>
+        <wsdl:part name="Body" type="ns4:GetCompositeStatusResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ModifyAccountBillingProfileAndNotificationRequest_v1">
+        <wsdl:part name="Header" type="ns0:Header"/>
+        <wsdl:part name="Body" type="ns5:ModifyAccountBillingProfileAndNotificationRequest"/>
+    </wsdl:message>
+    <wsdl:message name="ModifyAccountBillingProfileAndNotificationResponse_v1">
+        <wsdl:part name="Header" type="ns2:ResponseHeader"/>
+        <wsdl:part name="Body" type="ns5:ModifyAccountBillingProfileAndNotificationResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ModifyBarringStatusRequest_v1">
+        <wsdl:part name="Header" type="ns0:Header"/>
+        <wsdl:part name="Body" type="ns6:ModifyBarringStatusRequest"/>
+    </wsdl:message>
+    <wsdl:message name="ModifyBarringStatusResponse_v1">
+        <wsdl:part name="Header" type="ns2:ResponseHeader"/>
+    </wsdl:message>
+    <wsdl:message name="ActivateCreditCardAndSMSNotificationRequest_v1">
+        <wsdl:part name="Header" type="ns0:Header"/>
+        <wsdl:part name="Body" type="ns7:ActivateCreditCardAndSMSNotificationRequest"/>
+    </wsdl:message>
+    <wsdl:message name="ActivateCreditCardAndSMSNotificationResponse_v1">
+        <wsdl:part name="Header" type="ns2:ResponseHeader"/>
+    </wsdl:message>
+    <wsdl:message name="CreateDunningWorkFlowRequest_v1">
+        <wsdl:part name="Header" type="ns0:Header"/>
+        <wsdl:part name="Body" type="ns8:CreateDunningWorkFlowRequest"/>
+    </wsdl:message>
+    <wsdl:message name="CreateDunningWorkFlowResponse_v1">
+        <wsdl:part name="Header" type="ns2:ResponseHeader"/>
+        <wsdl:part name="Body" type="ns8:CreateDunningWorkFlowResponse"/>
+    </wsdl:message>
+    <wsdl:message name="CreateAsyncProcessRequest_v1">
+        <wsdl:part name="Header" type="ns0:Header"/>
+        <wsdl:part name="Body" type="ns9:CreateAsyncProcessRequest"/>
+    </wsdl:message>
+    <wsdl:message name="CreateAsyncProcessResponse_v1">
+        <wsdl:part name="Header" type="ns2:ResponseHeader"/>
+        <wsdl:part name="Body" type="ns9:CreateAsyncProcessResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ManageLoyaltyRequest_v1">
+        <wsdl:part name="Header" type="ns0:Header"/>
+        <wsdl:part name="Body" type="ns10:ManageLoyaltyRequest"/>
+    </wsdl:message>
+    <wsdl:message name="ManageLoyaltyResponse_v1">
+        <wsdl:part name="Header" type="ns2:ResponseHeader"/>
+        <wsdl:part name="Body" type="ns10:ManageLoyaltyResponse"/>
+    </wsdl:message>
+    <wsdl:message name="CreateOrderAndSMSNotificationRequest_v1">
+        <wsdl:part name="Header" type="ns0:Header"/>
+        <wsdl:part name="Body" type="ns11:CreateOrderAndSMSNotificationRequest"/>
+    </wsdl:message>
+    <wsdl:message name="CreateOrderAndSMSNotificationResponse_v1">
+        <wsdl:part name="Header" type="ns2:ResponseHeader"/>
+    </wsdl:message>
+</wsdl:definitions>

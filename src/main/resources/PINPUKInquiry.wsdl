@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Created by TIBCO WSDL-->
+<wsdl:definitions xmlns:tns="http://www.accenture.com/PINPUKInquiry" xmlns:ns0="http://www.accenture.com/ACS/EAI/Schema/WebService/PINPUKInquiryInput" xmlns:ns1="http://www.accenture.com/ACS/EAI/Schema/WebService/PINPUKInquiryOutput" xmlns:ns3="http://www.accenture.com/Schemas/Common/EaiCommonsInput.xsd" xmlns:ns2="http://www.accenture.com/Schemas/Common/EaiCommonsHeaderOutput" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="Untitled" targetNamespace="http://www.accenture.com/PINPUKInquiry">
+    <wsdl:types>
+        <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:eaih="http://www.accenture.com/Schemas/Common/EaiCommonsHeaderOutput" xmlns="http://www.accenture.com/ACS/EAI/Schema/WebService/PINPUKInquiryOutput" targetNamespace="http://www.accenture.com/ACS/EAI/Schema/WebService/PINPUKInquiryOutput" elementFormDefault="qualified" attributeFormDefault="unqualified">
+			<xs:import namespace="http://www.accenture.com/Schemas/Common/EaiCommonsHeaderOutput" schemaLocation="PINPUKHeaderOutput.xsd"/>
+            <xs:element name="BODY_OUTPUT">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="ns1:MSISDN_OUTPUT" minOccurs="0"/>
+                        <xs:element ref="ns1:ICCI_OUTPUT" minOccurs="0"/>
+                        <xs:element ref="ns1:SUBSCRIPTION_STATUS" minOccurs="0"/>
+                        <xs:element ref="ns1:REASON" minOccurs="0"/>
+                        <xs:element ref="ns1:PIN1" minOccurs="0"/>
+                        <xs:element ref="ns1:PIN2" minOccurs="0"/>
+                        <xs:element ref="ns1:PUK1" minOccurs="0"/>
+                        <xs:element ref="ns1:PUK2" minOccurs="0"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="ICCI_OUTPUT" type="xs:string"/>
+            <xs:element name="MSISDN_OUTPUT" type="xs:string"/>
+            <xs:element name="PIN1" type="xs:string"/>
+            <xs:element name="PIN2" type="xs:string"/>
+            <xs:element name="PINPUKInquiryOutput">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="ns1:BODY_OUTPUT" minOccurs="0"/>
+                        <xs:element ref="eaih:HEADER_OUTPUT"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="PUK1" type="xs:string"/>
+            <xs:element name="PUK2" type="xs:string"/>
+            <xs:element name="REASON" type="xs:string"/>
+            <xs:element name="SUBSCRIPTION_STATUS" type="xs:string"/>
+        </xs:schema>
+        <xs:schema xmlns:ns0="http://www.accenture.com/Schemas/Common/EaiCommonsInput.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.accenture.com/ACS/EAI/Schema/WebService/PINPUKInquiryInput" targetNamespace="http://www.accenture.com/ACS/EAI/Schema/WebService/PINPUKInquiryInput" elementFormDefault="qualified" attributeFormDefault="unqualified">
+            <xs:import namespace="http://www.accenture.com/Schemas/Common/EaiCommonsInput.xsd" schemaLocation="PINPUKEaiCommonsInput.xsd"/>
+            <xs:element name="BODY">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="MSISDN" minOccurs="0"/>
+                        <xs:element ref="ICCI" minOccurs="0"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="ICCI">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:maxLength value="18"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="MSISDN" type="xs:string"/>
+            <xs:element name="PINPUKInquiryInput">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="ns0:HEADER"/>
+                        <xs:element ref="BODY"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:service name="PINPUKInquiry">
+        <wsdl:port name="PINPUKInquiry" binding="tns:PINPUKInquiryBinding">
+            <soap:address location="http://localhost:7836/PINPUKInquiry"/>
+        </wsdl:port>
+    </wsdl:service>
+    <wsdl:portType name="PINPUKInquiry">
+        <wsdl:operation name="PINPUKInquiry">
+            <wsdl:input message="tns:PINPUKInquiryReq"/>
+            <wsdl:output message="tns:PINPUKInquiryRes"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="PINPUKInquiryBinding" type="tns:PINPUKInquiry">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="PINPUKInquiry">
+            <soap:operation style="document" soapAction="PINPUKInquiry"/>
+            <wsdl:input>
+                <soap:body use="literal" parts="PINPUKInquiryRequest"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="PINPUKInquiryResponse"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:message name="PINPUKInquiryReq">
+        <wsdl:part name="PINPUKInquiryRequest" element="ns0:PINPUKInquiryInput"/>
+    </wsdl:message>
+    <wsdl:message name="PINPUKInquiryRes">
+        <wsdl:part name="PINPUKInquiryResponse" element="ns1:PINPUKInquiryOutput"/>
+    </wsdl:message>
+</wsdl:definitions>
